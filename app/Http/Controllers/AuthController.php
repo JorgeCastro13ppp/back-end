@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -32,5 +33,22 @@ class AuthController extends Controller
         ]);
 
         return response()->json(['message' => 'Usuario creado con éxito', 'user' => $user], 201);
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // El usuario ha sido autenticado correctamente
+            // $user = Auth::user();
+            // return response()->json(['user' => $user], 200);
+            //1234Jorge_
+             // Autenticación exitosa
+        return response()->json(['message' => 'Inicio de sesión exitoso'], 200);
+        } else {
+            // Error de autenticación
+            return response()->json(['message' => 'Credenciales inválidas'], 401);
+        }
     }
 }
