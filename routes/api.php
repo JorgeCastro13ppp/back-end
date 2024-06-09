@@ -22,4 +22,4 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 
-Route::post('/subscribe', [SubscriptionController::class, 'subscribe']);
+Route::post('/subscribe/{email}', [SubscriptionController::class, 'subscribe']);
