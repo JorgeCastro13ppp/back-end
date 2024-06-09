@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\SubscriptionController;
 
 Route::get('/user', function (Request $request) {
@@ -20,6 +21,4 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);
 
-
-
-Route::post('/subscribe/{email}', [SubscriptionController::class, 'subscribe']);
+Route::post('/subscribe',[MailController::class, 'subscribe']);
