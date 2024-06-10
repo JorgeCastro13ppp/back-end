@@ -26,4 +26,6 @@ Route::get('/users/{email}', [UserController::class, 'showByEmail']);
 
 Route::put('/users/{email}/update-balance', [UserController::class, 'updateBalance']);
 
+Route::put('/users/{email}/subtract-balance', [UserController::class, 'subtractBalance']);
+
 
