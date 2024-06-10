@@ -24,3 +24,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/users/{email}', [UserController::class, 'showByEmail']);
 
+Route::put('/users/{id}/update-balance', [UserController::class, 'updateBalance']);
+
+

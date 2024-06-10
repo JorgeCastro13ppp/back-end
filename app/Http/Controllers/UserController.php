@@ -25,4 +25,22 @@ class UserController extends Controller
         }
     }
 
+    public function updateBalance(Request $request, $id)
+    {
+        // Validar la solicitud
+        $request->validate([
+            'amount' => 'required|numeric', // Asegúrate de que el monto sea numérico
+        ]);
+
+        // Buscar al usuario por su ID
+        $user = User::findOrFail($id);
+
+        // Actualizar el balance del usuario
+        $user->balance += $request->amount; // Sumar el monto proporcionado en la solicitud
+        $user->save();
+
+        // Responder con el usuario actualizado
+        return response()->json($user);
+    }
+
 }
