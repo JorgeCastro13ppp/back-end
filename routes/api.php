@@ -8,15 +8,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\UserController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/users/{id}', 'UserController@show');
+// Route::get('/users/{id}', 'UserController@show');
 
 Route::get('/api/tests', [TestController::class, 'index']);
 
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/users/{email}', [UserController::class, 'showByEmail']);
+
