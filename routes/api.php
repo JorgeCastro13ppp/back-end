@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\SubscriptionController;
+
 use App\Http\Controllers\UserController;
 
 Route::get('/user', function (Request $request) {
@@ -28,4 +27,5 @@ Route::put('/users/{email}/update-balance', [UserController::class, 'updateBalan
 
 Route::put('/users/{email}/subtract-balance', [UserController::class, 'subtractBalance']);
 
+Route::delete('/users/{email}', [UserController::class, 'deleteUserByEmail']);
 

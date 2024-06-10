@@ -78,6 +78,24 @@ class UserController extends Controller
         return response()->json($user);
     }
 
+    public function deleteUserByEmail($email)
+    {
+    // Buscar al usuario por su correo electrónico
+    $user = User::where('email', $email)->first();
+
+    // Verificar si el usuario fue encontrado
+    if (!$user) {
+        return response()->json(['error' => 'Usuario no encontrado'], 404);
+    }
+
+    // Eliminar al usuario
+    $user->delete();
+
+    // Responder con un mensaje de éxito
+    return response()->json(['message' => 'Usuario eliminado correctamente']);
+    }
+
+
 
 
 }
