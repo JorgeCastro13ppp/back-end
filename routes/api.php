@@ -27,5 +27,5 @@ Route::put('/users/{email}/update-balance', [UserController::class, 'updateBalan
 
 Route::put('/users/{email}/subtract-balance', [UserController::class, 'subtractBalance']);
 
-Route::delete('/users/{email}', [UserController::class, 'deleteUserByEmail']);
+Route::delete('/users/delete/{email}', [UserController::class, 'deleteUserByEmail']);
 
